@@ -1,3 +1,4 @@
+##St.apl.Nr: 231RWB008 Aleksandra Daņilova RDBI0 1. grupa
 class Node:
     def __init__(self, value):
         self.value = value
@@ -21,15 +22,19 @@ class LinkedList:
         self.length += 1
         return True
 
-    # WRITE HAS_LOOP METHOD HERE #
-    #                            #
-    #                            #
-    #                            #
-    #                            #
-    ##############################
-    
-    
-    
+    def has_loop(self):
+        slow = self.head
+        fast = self.head
+
+        while fast != None and fast.next != None:
+            slow = slow.next
+            fast = fast.next.next
+
+            if slow == fast:
+                return True
+            
+        return False
+
     
 my_linked_list_1 = LinkedList(1)
 my_linked_list_1.append(2)
@@ -46,7 +51,6 @@ my_linked_list_2.append(2)
 my_linked_list_2.append(3)
 my_linked_list_2.append(4)
 print(my_linked_list_2.has_loop() ) # Returns False
-
 
 
 
